@@ -15,27 +15,26 @@
 </head>
 <body>
 <div class="header">
+  <div class="btn-group">
+     <a href="index.html"><button class="buttonactive">Home</button></a>
+     <a href="library.html"><button class="button">Library</button></a>
+     <a href="about.html"><button class="button">About Us</button></a>
+   </div>
+<div class="image" style="float:right ">
+<img src="images/logo 2.png" alt="LOGO" width="250" height="80"/>
 
-
-                <div class="btn-group">
-                 <a href="index.html">        <button class="buttonactive">Home</button></a>
-                  <a href="library.html">        <button class="button">Library</button></a>
-                  <a href="about.html">        <button class="button">About Us</button></a>
-                   </div>
-                   
-                   <div class="image" style="float:right ">
-                   <img src="images/logo 2.png" alt="LOGO" width="250" height="80"/>
-                   
-         </div>        
+</div>        
 </div>
-
-<?php
-
-
+   
+<div class = "buffer" style="width: 100%; height: 100px;">
+   <p> Buffer </p>
+   
+   </div>
+   
+<div class ="phpclass">
+   <?php
     $query = $_GET['query']; 
-    // gets value sent over search form
-     
-         
+    // gets value sent over search form   
         $query = htmlspecialchars($query); 
         // changes characters used in html to their equivalents, for example: < to &gt;
          
@@ -54,20 +53,22 @@
         if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
              
             while($results = mysqli_fetch_array($raw_results)){
-            // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
-             
+            // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop       
                 echo "<p><h3>Career: ".$results['COL 3']."</h3>Major: ".$results['COL 5']."</p>";
                 echo "<p> Education: ".$results['COL 6']."<br>Category: ".$results['COL 2']."</p>";
-
                 // posts results gotten from database(title and text) you can also show id ($results['id'])
-            }
-             
+            }   
         }
         else{ // if there is no matching rows do following
             echo "No results";
         }
-         
-
-?>
+   ?>
+   
+   </div>
+   
+   <div class = "endlinecheck">
+      <p> ---- endline check ----- </p>
+   </div>
+   
 </body>
 </html>
